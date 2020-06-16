@@ -13,24 +13,30 @@ class File:
         self.tailleMax = tailleMax
 
     def ajouter(self,elem):
-        self.file.append(elem)
-        print(str(elem) + " a été ajouter à la file.")
+        if len(self.file) !=self.tailleMax:
+            self.file.insert(0,elem)
+            print(str(elem) + " a été ajouter à la file.")
+        else:
+            print("La file est pleine")
 
     def retirer(self):
         if len(self.file) !=0:
-            print("On a retire de la file"+str(self.file[-1]))
+            print("On a retire de la file"+ str(self.file[-1]))
             return self.file.pop()
-        return print("La file est vide")
+        else:
+            print("La file est vide")
 
     def estVide(self):
         return len(self.file)==0
 
     def avant(self):
         if self.estVide():
-            return print("La file est vide.")
-        return self.file[0]
+            print("La file est vide.")
+        else:
+            self.file[0]
 
     def arriere(self):
         if self.estVide():
-            return print("La file est vide.")
-        return self.file[-1]
+            print("La file est vide.")
+        else:
+            self.file[-1]
